@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "type": "module",
   "description": "Boilerplate for Node.js single executable applications",
-  "scripts": {},
+  "scripts": {
+    "type-check": "tsc --noEmit",
+    "bundle": "esbuild --bundle --outdir=build src/main.ts",
+    "inject": "cp $(which node) build/app && node --experimental-sea-config sea-config.json && npx postject build/app NODE_SEA_BLOB build/sea-prep.blob --sentinel-fuse NODE_SEA_FUSE_fce680ab2cc467b6e072b8b5df1996b2",
+    "build": "npm run type-check && npm run bundle && npm run inject"
+  },
   "keywords": [],
   "author": "",
   "license": "MIT",
@@ -11,6 +16,7 @@
     "@tsconfig/node-lts": "^20.1.1",
     "@types/node": "^20.11.17",
     "esbuild": "^0.20.0",
+    "postject": "^1.0.0-alpha.6",
     "typescript": "^5.3.3"
   }
 }

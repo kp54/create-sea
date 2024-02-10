@@ -1,0 +1,10 @@
+{
+  "name": "create-sea",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Boilerplate for Node.js single executable applications",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}

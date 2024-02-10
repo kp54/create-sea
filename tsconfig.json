@@ -1,0 +1,10 @@
+{
+  "extends": "@tsconfig/node-lts",
+  "compilerOptions": {
+    "isolatedModules": true,
+    "outDir": "build/",
+  },
+  "include": [
+    "src/",
+  ],
+}

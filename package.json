@@ -4,12 +4,13 @@
   "type": "module",
   "description": "Boilerplate for Node.js single executable applications",
   "scripts": {
-    "lint": "biome check src",
-    "lint-fix": "biome check --apply src",
-    "type-check": "tsc --noEmit",
-    "bundle": "esbuild --platform=node --bundle --outdir=build src/main.ts",
-    "inject": "cp $(which node) build/app && node --experimental-sea-config sea-config.json && npx postject build/app NODE_SEA_BLOB build/sea-prep.blob --sentinel-fuse NODE_SEA_FUSE_fce680ab2cc467b6e072b8b5df1996b2",
-    "build": "npm run lint && npm run type-check && npm run bundle && npm run inject"
+    "check": "biome check --write src && tsc --noEmit",
+    "exec": "npm run _bundle && node build/main.cjs",
+    "build": "npm run check && npm run _bundle && npm run _copy-node && npm run _prepare-blob && npm run _inject-blob",
+    "_bundle": "esbuild --platform=node --bundle --minify --outfile=build/main.cjs src/main.ts",
+    "_copy-node": "cp $(which node) build/app",
+    "_prepare-blob": "node --experimental-sea-config sea-config.json",
+    "_inject-blob": "postject build/app NODE_SEA_BLOB build/sea-prep.blob --sentinel-fuse NODE_SEA_FUSE_fce680ab2cc467b6e072b8b5df1996b2"
   },
   "keywords": [],
   "author": "",

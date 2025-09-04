@@ -1,5 +1,5 @@
 {
-  "name": "create-sea",
+  "name": "node-sea-boilerplate",
   "version": "1.0.0",
   "type": "module",
   "description": "Boilerplate for Node.js single executable applications",
@@ -12,9 +12,6 @@
     "_prepare-blob": "node --experimental-sea-config sea-config.json",
     "_inject-blob": "postject build/app NODE_SEA_BLOB build/sea-prep.blob --sentinel-fuse NODE_SEA_FUSE_fce680ab2cc467b6e072b8b5df1996b2"
   },
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
   "devDependencies": {
     "@biomejs/biome": "^2.1.4",
     "@tsconfig/node-lts": "^22.0.2",
